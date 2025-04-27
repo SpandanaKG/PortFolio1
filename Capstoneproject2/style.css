@@ -1,0 +1,194 @@
+body{
+    background-color: #FAFAFA;
+    margin: 0px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+} 
+.container{
+    display: grid;
+    grid-template-rows: 1.25fr 1fr 1fr auto;
+    gap:60px;
+    color: #3A0CA3  ;
+}
+.first-container{
+    display: flex;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+}
+.iceburg {
+    width: 100%;
+    max-width: 400px; /* control iceberg size */
+    height: auto;
+    float: left;
+}
+h1{
+    font-size: 4.5rem;
+    font-family: "Sacramento", cursive;
+    text-align: left;
+    padding-bottom: 50px;
+    font-weight: bold;
+}
+h2{
+    font-size: 2.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    font-weight: bolder;
+}
+h3{
+    margin-top: 20px;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    font-weight: lighter;
+}
+.second-container{
+    display: flex;
+    gap:50px;
+    align-items: center;
+    justify-content: center;
+}
+.second-container .image-1 > .image{
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    margin: 75px;
+}
+.second-container .para-1 > p{
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+}
+.third-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  0.5fr 0.75fr;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.skill-1{
+    grid-column: span 2;
+}
+.skill-1 > h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.item{
+    display:flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+h4{
+    margin-top: 50px;
+}
+.third-container img{
+    height: 200px;
+    width: 200px;
+    margin: 50px;
+}
+.third-container p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-align: left;
+} 
+.fourth-container img{
+    width: 100%;
+    max-width: 30px; 
+    padding: 0%;/* control iceberg size */
+    height: auto;
+    border-radius: 100%;
+
+}
+@media (max-width:1200px){
+    .body{
+        text-align: center;
+    }
+    .container{
+        grid-template-rows: 0.25fr 1fr auto auto;
+    }
+    .first-container{
+        flex-direction: column;
+    }
+    .iceburg{
+        width: 300px;
+        float: left;
+        margin-top: 50px;
+    }
+    h1{
+        font-size: 3rem;
+        font-family: "Sacramento", cursive;
+        text-align: left;
+        padding-bottom: 50px;
+        font-weight: bolder;
+        text-align: center;
+    }
+    h2{
+        font-size: 2rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: left;
+        font-weight: lighter;
+        text-align: center;
+    }
+    .second-container{
+        flex-direction: column;
+    }
+    .second-container .image-1 > .image{
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+    }
+    .second-container .para-1 > p{
+        text-align: left;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.5rem;
+        max-width: 400px;
+    }
+    .third-container{
+        display: initial;
+    }
+    .item{
+        flex-direction: column;
+    }
+}
+/* FadeIn animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container, .first-container, .second-container, .third-container {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Initially offset */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for animation */
+}
+
+/* This class is added when the element is in view */
+.container.active, .first-container.active, .second-container.active, .third-container.active {
+  animation: fadeIn 1s ease-out forwards; /* Trigger fadeIn animation when the element is in view */
+}
+
+/* Image hover zoom effect */
+.iceburg, .second-container .image-1 > .image, .third-container img {
+  transition: transform 0.5s ease;
+}
+
+.iceburg:hover, .second-container .image-1 > .image:hover, .third-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth transition for text hover */
+h1, h2, h3, h4, p {
+  transition: all 0.3s ease-in-out;
+}
+
